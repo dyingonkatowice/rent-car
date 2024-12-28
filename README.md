@@ -30,6 +30,8 @@
 
 ### This website showcases our work and what we do
 
+- TypeScript
+- shadCn
 - vite 18.3.1
 - react 6.1.1
 
