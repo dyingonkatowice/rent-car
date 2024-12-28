@@ -1,6 +1,6 @@
 # Rent App Project
 
-#For Avni
+# For Avni
 
 ### Create a branch of what you work on, I created mine for rent-app at the moment, will work on it tommorow. layout + gallery
 * shadCN needs TypeScript, but it can still be used just need to get rid of typescript *
