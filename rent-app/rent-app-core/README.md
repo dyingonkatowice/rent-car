@@ -1,3 +1,7 @@
+### 29.12.2024
+
+## Bartosz
+
 ```javascript
 setCount((prevCount) => (prevCount + 1) % recomendedCar.length);
 ```
@@ -30,3 +34,73 @@ setCount((prevCount) => (prevCount + 1) % recomendedCar.length);
 
 - When prevCount = 2:
 - (prevCount + 1) % 3 = (2 + 1) % 3 = 0 (wraps back to the start)
+
+```<div className="container mx-auto px-4 w-[1300px]">
+          {/* Search Bar */}
+          <div className="mb-8 pt-8">
+            {/* Value which you type in ( basic one from useState) */}
+            {/* On change ( when you type it uses function to filter) */}
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              placeholder="Search for cars..."
+              className="w-full p-4 rounded-lg bg-[#1E2432] border border-gray-700 focus:outline-none focus:border-blue-500"
+            />
+          </div>
+
+          {/* Filtered Results */}
+
+          {/* This is pretty basic. You just use filtered cars that gets set on each Change in onChange={handleSeacrchChange} */}
+          {searchQuery && filteredCars.length > 0 ? (
+            <ul className="space-y-4">
+              {filteredCars.map((car) => (
+                <li key={car.id} className="bg-[#1E2432] rounded-lg p-3 m-2">
+                  <h3 className="text-xl font-bold mb-2">{car.title}</h3>
+                  <p className="text-gray-400 pb-2">
+                    {String(car.year)} - {car.gearbox}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            // Do nothing or show a message when input is empty
+            <p className="text-gray-500 pb-10">
+              Please type something to search...
+            </p>
+          )}
+        </div>
+```
+
+### This code plus this states and functions
+
+```
+
+  // Search Bar filtering (chatgpt helped)
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredCars, setFilteredCars] = useState([]);
+
+  const handleSearchChange = (e) => {
+    //getting Input
+    const query = e.target.value;
+
+    //Setting it for useState ( what you type is set there )
+    setSearchQuery(query);
+
+    // Filter cars only if there is text in the search field
+    if (query.trim() === "") {
+      //If there is no text after triming then it displays nothing( it displays whole list without it )
+      setFilteredCars([]); // Show nothing when the input is empty
+    } else {
+      //filtering cars setting text from input to lover case and text in object, so when it includes the text it can be displyed
+      const filtered = cars.filter((car) =>
+        car.title.toLowerCase().includes(query.toLowerCase())
+      );
+
+      //setting displayed text as filtered value
+      setFilteredCars(filtered);
+    }
+  };
+
+```

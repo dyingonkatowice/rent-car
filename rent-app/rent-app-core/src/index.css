@@ -4,6 +4,11 @@
 
 @layer base {
   body {
-    @apply bg-[#121720] text-white;
+    @apply bg-[#000000] text-white;
   }
+}
+
+img {
+  pointer-events: none;
+  user-select: none;
 }
