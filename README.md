@@ -45,6 +45,8 @@
 
 - framer-motion
 - react-router-dom
+- LazyImageLoader
+- React Icons
 
 # For all
 
