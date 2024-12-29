@@ -81,7 +81,7 @@ export default function Home() {
     {
       id: 5,
       src: lamborghini,
-      title: "Lamborghini Huracán EVO",
+      title: "Lamborghini Huracan EVO",
       gearbox: "automatic",
       year: 2023,
       recomended: false,
