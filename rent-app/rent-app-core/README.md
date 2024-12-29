@@ -1,5 +1,30 @@
 ### 29.12.2024
 
+# Things to add:
+
+1. Search.
+
+- When searchin in bottom gallery display searched cars.
+- Add useState which displays bottom list as normal and when search it displays filtered resoults.
+- when search is clicked/ picked/ done reset useState in other function so other lists looks like in base State.
+
+2. Global css Styles/ dark mode - light mode
+
+- Add global styling
+- Add toggle switch to switch colors
+- Add basic for user interface
+
+3. Button next to search button for extended seach that filters cars that have specific for eg year etc "advanced search"
+
+- add button
+- implement filtering, reuse existing
+
+##### Tutorial
+
+###### Dynamic Theming
+
+[Themes picked tailwind + react + saving on local storage](https://www.youtube.com/watch?v=8nvRWuLmcD4&ab_channel=CodeRadiance)
+
 ## Bartosz
 
 ```javascript
