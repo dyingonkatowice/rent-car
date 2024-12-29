@@ -3,7 +3,8 @@
 # For Avni
 
 ### Create a branch of what you work on, I created mine for rent-app at the moment, will work on it tommorow. layout + gallery
-* shadCN needs TypeScript, but it can still be used just need to get rid of typescript *
+
+- shadCN needs TypeScript, but it can still be used just need to get rid of typescript \*
 
 ## Rent-app
 
@@ -44,3 +45,13 @@
 
 - framer-motion
 - react-router-dom
+
+# For all
+
+##### Lazy Load
+
+###### React Lazy Load Image Component
+
+[Lazy Load tutorial](https://www.freecodecamp.org/news/how-to-lazy-load-images-in-react/)
+
+- Images will be added by default, with LazyLoad
