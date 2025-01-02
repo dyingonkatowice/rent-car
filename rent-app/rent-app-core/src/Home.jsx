@@ -1,34 +1,9 @@
-// src/Home.jsx
 import React, { useState, useEffect } from "react";
 import { easeIn, motion } from "motion/react";
-import { IoMdCloseCircleOutline } from "react-icons/io";
-
-import mercedes from "./assets/cars/mercedes-amg-gt.avif";
-import bmw from "./assets/cars/bmw-m4.jpg";
-import audi from "./assets/cars/audi-rs7.webp";
-import porsche from "./assets/cars/porsche-911.jpg";
-import ferrari from "./assets/cars/ferrari-f8-tributo.jpeg";
-import lamborghini from "./assets/cars/lamborghini-huracan-evo.jpg";
-import chevrolet from "./assets/cars/chevrolet-corvette-c8.jpg";
-import mclaren from "./assets/cars/mclaren-720s.webp";
-import ford from "./assets/cars/ford-mustang-gt500.avif";
-import jaguar from "./assets/cars/jaguar-f-type-r.jpg";
-import aston_martin from "./assets/cars/aston-martin-vantage.webp";
-import bugatti from "./assets/cars/bugatti-chiron.jpg";
-import toyota from "./assets/cars/toyota-supra-gr.jpeg";
-import nissan from "./assets/cars/nissan-gt-r-nismo.jpg";
-import subaru from "./assets/cars/subaru-wrx-sti.jpg";
-import mazda from "./assets/cars/mazda-mx5-miata.avif";
-import volkswagen from "./assets/cars/volkswagen-golf-r.jpg";
-import bmw1 from "./assets/cars/bmw-m8.jpg";
-import audi1 from "./assets/cars/audi-r8-v10.webp";
-import porsche1 from "./assets/cars/porsche-taycan-turbo-s.jpg";
-
-import RentPopUp from "./components/RentPopUp";
-
-//Lazy Load
-
+import cars from "./data/Cars";
+import SelectedCarList from "./components/SelectedCarList";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import RentPopUp from "./components/RentPopUp";
 
 export default function Home() {
   const [isVisible, isVisibleToggle] = useState(false);
@@ -36,169 +11,6 @@ export default function Home() {
   const [isFocused, setIsFocused] = useState(false);
   const [direction, setDirection] = useState("next");
   const [selectedCar, setSelectedCar] = useState(null);
-
-  const cars = [
-    {
-      id: 0,
-      src: mercedes,
-      title: "Mercedes AMG GT",
-      gearbox: "manual",
-      year: 2024,
-      recomended: true,
-    },
-    {
-      id: 1,
-      src: bmw,
-      title: "BMW M4 Competition",
-      gearbox: "manual",
-      year: 2021,
-      recomended: true,
-    },
-    {
-      id: 2,
-      src: audi,
-      title: "Audi RS7 Sportback",
-      gearbox: "manual",
-      year: 2018,
-      recomended: true,
-    },
-    {
-      id: 3,
-      src: porsche,
-      title: "Porsche 911 GT3",
-      gearbox: "automatic",
-      year: 2014,
-      recomended: true,
-    },
-    {
-      id: 4,
-      src: ferrari,
-      title: "Ferrari F8 Tributo",
-      gearbox: "automatic",
-      year: 2022,
-      recomended: false,
-    },
-    {
-      id: 5,
-      src: lamborghini,
-      title: "Lamborghini Huracan EVO",
-      gearbox: "automatic",
-      year: 2023,
-      recomended: false,
-    },
-    {
-      id: 6,
-      src: chevrolet,
-      title: "Chevrolet Corvette C8",
-      gearbox: "manual",
-      year: 2021,
-      recomended: false,
-    },
-    {
-      id: 7,
-      src: mclaren,
-      title: "McLaren 720S",
-      gearbox: "automatic",
-      year: 2020,
-      recomended: false,
-    },
-    {
-      id: 8,
-      src: ford,
-      title: "Ford Mustang GT500",
-      gearbox: "manual",
-      year: 2022,
-      recomended: false,
-    },
-    {
-      id: 9,
-      src: jaguar,
-      title: "Jaguar F-Type R",
-      gearbox: "automatic",
-      year: 2021,
-      recomended: true,
-    },
-    {
-      id: 10,
-      src: aston_martin,
-      title: "Aston Martin Vantage",
-      gearbox: "manual",
-      year: 2022,
-      recomended: false,
-    },
-    {
-      id: 11,
-      src: bugatti,
-      title: "Bugatti Chiron",
-      gearbox: "automatic",
-      year: 2023,
-      recomended: false,
-    },
-    {
-      id: 12,
-      src: toyota,
-      title: "Toyota Supra GR",
-      gearbox: "manual",
-      year: 2023,
-      recomended: false,
-    },
-    {
-      id: 13,
-      src: nissan,
-      title: "Nissan GT-R Nismo",
-      gearbox: "manual",
-      year: 2020,
-      recomended: false,
-    },
-    {
-      id: 14,
-      src: subaru,
-      title: "Subaru WRX STI",
-      gearbox: "manual",
-      year: 2021,
-      recomended: false,
-    },
-    {
-      id: 15,
-      src: mazda,
-      title: "Mazda MX-5 Miata",
-      gearbox: "manual",
-      year: 2024,
-      recomended: false,
-    },
-    {
-      id: 16,
-      src: volkswagen,
-      title: "Volkswagen Golf R",
-      gearbox: "manual",
-      year: 2022,
-      recomended: false,
-    },
-    {
-      id: 17,
-      src: bmw1,
-      title: "BMW M8",
-      gearbox: "automatic",
-      year: 2020,
-      recomended: false,
-    },
-    {
-      id: 18,
-      src: audi1,
-      title: "Audi R8 V10",
-      gearbox: "automatic",
-      year: 2021,
-      recomended: true,
-    },
-    {
-      id: 19,
-      src: porsche1,
-      title: "Porsche Taycan Turbo S",
-      gearbox: "automatic",
-      year: 2023,
-      recomended: false,
-    },
-  ];
 
   // Function to go to the next recommended car
   const next = () => {
@@ -252,24 +64,13 @@ export default function Home() {
   const closePopup = () => {
     setSelectedCar(null); // Clear the selected car to close the popup
   };
+
   return (
     <>
-      {isVisible && <RentPopUp />}
-
+      {isVisible && (
+        <RentPopUp closePopup={() => isVisibleToggle(!isVisible)} />
+      )}
       <main className="container mx-auto px-4">
-        {/* Old Search Bar */}
-        {/* <div className="mb-8 pt-8">
-          <input
-            type="text"
-            placeholder="Search for cars..."
-            className="w-full p-4 rounded-lg bg-[#1a1919] border border-gray-900 focus:outline-none focus:border-white"
-            onFocus={() => setIsFocused(!isFocused)}
-            onBlur={() => setIsFocused(!isFocused)}
-          />
-
-    
-        </div> */}
-
         <div className="container mx-auto px-4 w-full">
           {/* Search Bar */}
           <div className="mb-8 pt-8">
@@ -309,27 +110,11 @@ export default function Home() {
             </p>
           )}
         </div>
-        {selectedCar && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-white rounded-lg p-8 w-96">
-              <button className="text-black">
-                <IoMdCloseCircleOutline onClick={closePopup} />
-              </button>
-              <img
-                src={selectedCar.src}
-                alt={selectedCar.title}
-                className="w-full rounded mb-4"
-              />
 
-              <h3 className="text-2xl text-black font-bold">
-                {selectedCar.title}
-              </h3>
-              <p className="text-gray-700 mt-2"></p>
-              <p className="text-gray-500 mt-1">
-                {selectedCar.year} - {selectedCar.gearbox}
-              </p>
-            </div>
-          </div>
+        {/* PopUp Car */}
+
+        {selectedCar && (
+          <SelectedCarList selectedCar={selectedCar} closePopup={closePopup} />
         )}
 
         <div className="relative mb-12">
