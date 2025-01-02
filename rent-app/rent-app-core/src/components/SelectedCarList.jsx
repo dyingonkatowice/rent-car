@@ -4,7 +4,7 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 export default function SelectedCarList({ selectedCar, closePopup }) {
   if (!selectedCar) return null;
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40">
       <div className="bg-white rounded-lg p-8 w-96">
         <button className="text-black">
           <IoMdCloseCircleOutline onClick={closePopup} />
