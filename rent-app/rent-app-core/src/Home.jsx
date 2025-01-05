@@ -252,6 +252,12 @@ export default function Home() {
   const closePopup = () => {
     setSelectedCar(null); // Clear the selected car to close the popup
   };
+<<<<<<< Updated upstream
+=======
+
+  //Search and Advance search common
+
+>>>>>>> Stashed changes
   return (
     <>
       {isVisible && <RentPopUp />}
@@ -278,10 +284,26 @@ export default function Home() {
             <input
               type="text"
               value={searchQuery}
+              onClick={() => {
+                if (advancedVisible == true) {
+                  setAdvancedVisible(!advancedVisible);
+                }
+              }}
               onChange={handleSearchChange}
               placeholder="Search for cars..."
               className="w-full p-4 rounded-lg bg-[#1E2432] border border-gray-700 focus:outline-none focus:border-blue-500"
             />
+<<<<<<< Updated upstream
+=======
+
+            <motion.button
+              onClick={() => setAdvancedVisible(!advancedVisible)}
+              className="w-[40%] md:w-[30%] lg:w-[19%] xl:w-[18%] 2xl:w-[14%] p-4 rounded-lg border-white border ml-2 flex items-center justify-around"
+            >
+              Advanced Search
+              <FaSearch />
+            </motion.button>
+>>>>>>> Stashed changes
           </div>
 
           {/* Filtered Results */}
@@ -291,7 +313,9 @@ export default function Home() {
             <ul className="space-y-4">
               {filteredCars.map((car) => (
                 <li
-                  onClick={() => handleCarClick(car)}
+                  onClick={() => {
+                    handleCarClick(car);
+                  }}
                   key={car.id}
                   className="bg-[#1E2432] rounded-lg p-3 m-2"
                 >
